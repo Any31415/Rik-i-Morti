@@ -22,9 +22,9 @@ const createTableQuery = `
     );
 `; // Создание таблицы обычный SQL
 
-const truncateTableQuery = `
-    TRUNCATE TABLE my_table;
-`;
+// const truncateTableQuery = `
+//     TRUNCATE TABLE my_table;
+// `;
 
 const insertDataQuery = `
     INSERT INTO my_table (name, data)
@@ -41,18 +41,18 @@ async function fetchDataAndInsert() {
             "https://rickandmortyapi.com/api/character/361",
         ); //GET запрос по URL для перса 361
         const character = response.data; //переменная с ответом от сервера
-        await client.query(truncateTableQuery);
+        // await client.query(truncateTableQuery);
         console.log("Table truncated.");
         const res = await client.query(insertDataQuery, [
             character.name,
             character,
         ]);
-        console.log("Inserted row with id:", res.rows[0].id);
+        console.log("Inserted row with id:", res.rows[0].id); // вставка
     } catch (error) {
         console.error("Error:", error);
     } finally {
         await client.end();
-        console.log("Disconnected from the database."); //для меня в консоль, чтобы понимать, что происходит
+        console.log("Disconnected from the database."); //для меня bya в консоль, чтобы понимать, что происходит
     }
 }
 
