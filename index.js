@@ -15,7 +15,7 @@ const config = {
 const client = new pg.Client(config); // новый экземпляр клиента
 
 const createTableQuery = `
-    CREATE TABLE IF NOT EXISTS my_table (
+    CREATE TABLE IF NOT EXISTS Any31415 (
         id SERIAL PRIMARY KEY,
         name TEXT NOT NULL,
         data JSONB NOT NULL
@@ -23,11 +23,11 @@ const createTableQuery = `
 `; // Создание таблицы обычный SQL
 
 // const truncateTableQuery = `
-//     TRUNCATE TABLE my_table;
+//     TRUNCATE TABLE Any31415;
 // `;
 
 const insertDataQuery = `
-    INSERT INTO my_table (name, data)
+    INSERT INTO Any31415 (name, data)
     VALUES ($1, $2)
     RETURNING id;
 `;
