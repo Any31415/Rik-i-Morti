@@ -1,7 +1,17 @@
-"use strict"; // Включаtv строгий режим для и чистого кода
+"use strict"; // Включаtv строгий режим (для чистого кода)
 const fs = require("fs"); //импорт модуля для фс
 const pg = require("pg"); // импорт модуля для PgSQL
 const axios = require("axios"); // Импорт axios для HTTP
+
+const { execSync } = require('child_process');// чтобы не слетал shell и все выполнялось
+const fs = require('fs');
+// Выполнение скрипта setup.sh
+execSync('bash setup.sh', { stdio: 'inherit' });
+// Проверка наличия файла root.crt
+if (!fs.existsSync('/home/runner/.postgresql/root.crt')) {
+  throw new Error('root.crt file not found');
+}
+
 
 const config = {
     connectionString:
