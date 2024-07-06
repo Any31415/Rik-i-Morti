@@ -4,7 +4,6 @@ const pg = require("pg"); // импорт модуля для PgSQL
 const axios = require("axios"); // Импорт axios для HTTP
 
 const { execSync } = require('child_process');// чтобы не слетал shell и все выполнялось
-const fs = require('fs');
 // Выполнение скрипта setup.sh
 execSync('bash setup.sh', { stdio: 'inherit' });
 // Проверка наличия файла root.crt
